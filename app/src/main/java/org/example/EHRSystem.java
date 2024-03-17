@@ -69,8 +69,15 @@ public class EHRSystem extends JFrame {
         JTextField nameField = new JTextField();
         JLabel diagnosisLabel = new JLabel("Diagnosis:");
         JTextField diagnosisField = new JTextField();
-        JLabel prescriptionLabel = new JLabel("Prescription:");
-        JTextField prescriptionField = new JTextField();
+        JButton prescriptionButton = new JButton("Prescription");
+        prescriptionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // PrescriptionForm prescriptionForm = new PrescriptionForm();
+                // prescriptionForm.setVisible(true);
+            }
+        });
+
 
         JButton insertButton = new JButton("Insert Case");
         insertButton.addActionListener(new ActionListener() {
@@ -78,16 +85,16 @@ public class EHRSystem extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String patientName = nameField.getText();
                 String diagnosis = diagnosisField.getText();
-                String prescription = prescriptionField.getText();
+                // String prescription = PrescriptionForm.getText();
 
                 // Here you would typically insert the data into a database or a data structure
                 // For demonstration purposes, we'll just add it directly to the table model
-                tableModel.addRow(new Object[] { tableModel.getRowCount() + 1, patientName, diagnosis, prescription });
+                tableModel.addRow(new Object[] { tableModel.getRowCount() + 1, patientName, diagnosis});
 
                 // Clear the input fields after insertion
                 nameField.setText("");
                 diagnosisField.setText("");
-                prescriptionField.setText("");
+                // PrescriptionForm.setText("");
             }
         });
 
@@ -95,8 +102,9 @@ public class EHRSystem extends JFrame {
         insertPanel.add(nameField);
         insertPanel.add(diagnosisLabel);
         insertPanel.add(diagnosisField);
-        insertPanel.add(prescriptionLabel);
-        insertPanel.add(prescriptionField);
+        insertPanel.add(prescriptionButton);
+        // insertPanel.add(prescriptionLabel);
+        // insertPanel.add(prescriptionField);
         insertPanel.add(insertButton);
 
         // Add the insert panel below the patient data panel
@@ -104,4 +112,6 @@ public class EHRSystem extends JFrame {
 
         // Other UI elements would be created here in a similar manner...
     }
+
+    
 }

@@ -7,8 +7,10 @@ public class App {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                EHRSystem ex = new EHRSystem();
-                ex.setVisible(true);
+                LoginSystem frame = new LoginSystem();
+                frame.setVisible(true);
+                // EHRSystem ex = new EHRSystem();
+                // ex.setVisible(true);
             }
         });
     }
